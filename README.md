@@ -16,6 +16,17 @@ We have employed the use of Cross Industry Standard Proces for Data Mining (CRIS
 ### Success Criteria and Definition of Done
 1. The application should be able to forecast the number of products to be sold per week, per store and in total for at least 2 months.
 2. The Application should have at least two endpoints. One for the management of Iridium Stores and another for the Store Manager at the chain store. 
+ 
+ **Store Manager Endpoint Features** 
+ 1. No access to prediction
+ 2. EDA dashboard
+ 3. Secure Login
+
+ **Management Endpoint Features**
+ 1. Access to prediction
+ 2. EDA Dashboard
+ 3. Forecast Dashboard
+ 4. Secure Login
 
 ### Stakeholders
 1. Management 
