@@ -4,6 +4,7 @@ import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 import matplotlib.pyplot as plt
 import numpy as np
+import joblib
 
 print('models imported successfully')
 # %%
@@ -12,7 +13,7 @@ df = pd.read_csv('train_clean.csv', parse_dates=True).drop('Unnamed: 0', axis=1)
 df['date'] = pd.to_datetime(df['date'])
 
 #groupby product to get product performance forecast 
-product_df = df.groupby(['date','category_id']).sum().drop(['store_id','nbr_of_transactions'], axis=1).reset_index()
+product_df = df.groupby(['date','category_id']).sum().drop(['store_id'], axis=1).reset_index()
 product_df
 # %%
 #Model and predict for each category in a loop 
@@ -23,6 +24,7 @@ product_df_filtered
 
 # Set the Date as index
 product_df_filtered.set_index('date', inplace=True)
+product_df_filtered
 
 # %%
 
@@ -39,10 +41,11 @@ forecast = model_fit.predict(start=len(train), end=len(train) + len(test) - 1, e
 
 # Evaluate
 rmse = ((forecast - test['target']) ** 2).mean() ** 0.5
-print('RMSE: ', rmse)
+print(f'RMSE:, {rmse:.2f}')
 
-# Plot the results
-import matplotlib.pyplot as plt
+ape = np.abs((test['target'] - forecast)/test['target'])*100
+mape = np.mean(ape)
+print(f'MAPE: {mape:.2f}%')
 
 plt.figure(figsize=(10, 5))
 #plt.plot(train['target'], label='Train')
@@ -51,8 +54,7 @@ plt.plot(forecast, label='Forecast')
 plt.legend()
 plt.show()
 # %%
-ape = np.abs((test['target'] - forecast)/test['target'])*100
-mape = np.mean(ape)
-print(f'{mape:.2f}%')
+
+joblib.dump(model, 'sarima.pkl')
 
 # %%

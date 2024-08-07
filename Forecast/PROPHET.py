@@ -8,6 +8,7 @@ import pandas as pd
 from prophet import Prophet
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
+import joblib
 
 print('libraries loaded successfuly')
 
@@ -46,6 +47,7 @@ model = Prophet()
 # If you have additional regressors (like promotions), you need to add them to the model separately
 model.add_regressor('onpromotion')
 model.add_regressor('nbr_of_transactions')
+model.add_country_holidays('')
 
 # Fit the model
 model.fit(train_df)
@@ -77,4 +79,7 @@ plt.legend()
 # Show plot
 plt.show()
 
+# %%
+
+joblib.dump(model, 'prophet.pkl')
 # %%
