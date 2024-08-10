@@ -1,3 +1,5 @@
-.venv
 /virtual_stores
 streamlit_auth.py
+forecast_env
+.venv
+.ipynb_checkpoints
