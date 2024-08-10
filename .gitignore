@@ -1,2 +1,3 @@
 .venv
 /virtual_stores
+streamlit_auth.py
