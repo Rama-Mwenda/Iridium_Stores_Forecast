@@ -50,7 +50,7 @@ def show_login(config):
         st.session_state["authentication_status"] = None
 
     if st.session_state["authentication_status"]:
-        st.success(f'Welcome *{st.session_state["name"]}*')
+        st.subheader(f'Welcome *{st.session_state["name"]}*👋')
         authenticator.logout()
         st.session_state['logged_in'] = True 
     elif st.session_state["authentication_status"] is False:
@@ -90,13 +90,49 @@ def show_signup(config):
 # Main function to run the app
 def main():
     col1, col2, col3 = st.columns(3)
-    with col1:
-        st.title(":blue[Iridium Stores]🏬")
     with col3:
-        choice = st.radio(" ", ["Login", "Sign Up"], horizontal=True)
+        choice = st.radio(" ", [" ", "Login", "Sign Up"], horizontal=True)
     config = load_config()
     if config:
-        if choice == "Login":
+        if choice == " ":
+            # Set the title of the app
+            st.title("Iridium Sales Forecasting Application 🏬")
+
+            # Add the welcome message
+            st.markdown("""
+            ## Unlock the Power of Predictive Analytics
+
+            Welcome to the Iridium Sales Forecasting App, your go-to tool for making informed, data-driven decisions that drive business growth. This application is designed to provide you with accurate sales forecasts, enabling you to anticipate market trends, optimize inventory, and maximize revenue.
+            """)
+
+            # Highlight key features
+            st.subheader("Key Features")
+            st.markdown("""
+            - **Advanced Forecasting Models**: Utilize state-of-the-art predictive models to forecast sales with precision.
+            - **Interactive Dashboards**: Access real-time insights and trends through customizable visualizations.
+            - **Data-Driven Insights**: Empower your decision-making process with actionable insights derived from your sales data.
+            """)
+
+            # Add instructions on how to get started
+            st.subheader("How to Get Started")
+            st.markdown("""
+            1. **Log In**: Use your credentials to access the dashboard and start exploring the data.
+            2. **Explore the Features**: Navigate through various tools designed to help you analyze past sales, predict future trends, and optimize your strategy.
+            3. **Need Help?**: Visit our support page or contact our help desk for assistance.
+            """)
+
+            # Add a section on why to choose Iridium
+            st.subheader("Why Choose Iridium?")
+            st.markdown("""
+            At Iridium, we believe in the transformative power of data. Our application is built to help you stay ahead of the curve by providing accurate sales forecasts that are easy to interpret and implement.
+            """)
+
+            # Add contact information
+            st.subheader("Contact Us")
+            st.markdown("""
+            For any inquiries or support, please reach out to our team at [support@iridiumstores.com](mailto:support@iridiumstores.com).
+            """)
+        elif choice == "Login":
             show_login(config)
         elif choice == "Sign Up":
             show_signup(config)
