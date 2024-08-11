@@ -167,7 +167,7 @@ if submitted:
         time.sleep(2)
 
     # Pass the form values to your API
-    response = requests.get("http://127.0.0.1:8000/")
+    response = requests.get("http://0.0.0.0:80")
 
     if response.status_code == 200:
         with left:
@@ -176,7 +176,7 @@ if submitted:
         with st.spinner('Running Predictions...'):
             time.sleep(2)
             
-        forecast_response = requests.post("http://127.0.0.1:8000/forecast", json=form_values)
+        forecast_response = requests.post("http://0.0.0.0:80/forecast", json=form_values)
         
         if forecast_response.status_code == 200:
             forecast_data = forecast_response.json()
