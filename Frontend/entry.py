@@ -8,7 +8,7 @@ from streamlit_authenticator.utilities import LoginError, CredentialsError, Rese
 st.set_page_config(page_title="Home", page_icon="", layout="wide")
 
 # Function to load the config file
-def load_config(path='../config.yaml'):
+def load_config(path='config.yaml'):
     try:
         with open(path, 'r', encoding='utf-8') as file:
             config = yaml.load(file, Loader=SafeLoader)
@@ -21,7 +21,7 @@ def load_config(path='../config.yaml'):
         return None
 
 # Function to save the config file
-def save_config(config, path='../config.yaml'):
+def save_config(config, path='config.yaml'):
     try:
         with open(path, 'w', encoding='utf-8') as file:
             yaml.dump(config, file, default_flow_style=False)
@@ -51,7 +51,7 @@ def show_login(config):
 
     if st.session_state["authentication_status"]:
         st.subheader(f'Welcome *{st.session_state["name"]}*👋')
-        authenticator.logout()
+        authenticator.logout('Logout', 'sidebar')
         st.session_state['logged_in'] = True 
     elif st.session_state["authentication_status"] is False:
         st.error('Username/password is incorrect')
