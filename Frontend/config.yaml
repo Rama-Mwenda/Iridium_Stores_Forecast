@@ -1,0 +1,43 @@
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    ayzubair:
+      email: ayzubair@hotmail.com
+      failed_login_attempts: 0
+      logged_in: false
+      name: Zubairu Ayuba
+      password: $2a$12$q2CS9zdZ3iV2cw3.79Zxi.jkTMQnvmlLS2kFR7RgIv80c1GPPfkCu
+    jsmith:
+      email: jsmith@gmail.com
+      failed_login_attempts: 0
+      logged_in: false
+      name: John Smith
+      password: $2b$12$iWlVOac3uujRvTrXDi6wructXftKmo/GyQd6SMu5FmyX306kH.yFO
+    rama:
+      email: ngige.mwenda@outlook.com
+      logged_in: false
+      name: Ramadhan Mwenda
+      password: $2b$12$JXpXFyL5gtjTGDRMS29E1O29icSTfvnAxAi8L2i5YT36zzNeyfJZe
+    rbriggs:
+      email: rbriggs@gmail.com
+      failed_login_attempts: 0
+      logged_in: false
+      name: Rebecca Briggs
+      password: $2b$12$uNaTgvGPG9rMbzOJHYaPQePw0DUfp1qHBrSq6l4O304qani6pKFpm
+    rcouper:
+      email: rcouper@gmail.com
+      failed_login_attempts: 0
+      logged_in: false
+      name: Ross Couper
+      password: $2b$12$Tir/PbHVmmnt5kgNxgOwMuxNIb2fv2pJ.q71TW8ekvbugCqkye4yu
+    rerere:
+      email: fgur@gguyt.com
+      logged_in: false
+      name: rere
+      password: $2b$12$YTkcwdFJG1rTCU8JvE7C1ODEo2rVwElRdfG4Fz57GOrOp0fFWYRYC
+pre-authorized:
+  emails:
+  - melsby@gmail.com
